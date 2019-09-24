@@ -295,6 +295,15 @@
           }
         }
       },
+      "Newtonsoft.Json/12.0.2": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        }
+      },
       "runtime.native.System/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -1256,6 +1265,9 @@
       "BackManager.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.0",
+        "dependencies": {
+          "Newtonsoft.Json": "12.0.2"
+        },
         "compile": {
           "bin/placeholder/BackManager.Domain.dll": {}
         },
@@ -1769,6 +1781,36 @@
         "runtimes/win/lib/netstandard2.0/Microsoft.Win32.Registry.xml",
         "useSharedDesignerContext.txt",
         "version.txt"
+      ]
+    },
+    "Newtonsoft.Json/12.0.2": {
+      "sha512": "rTK0s2EKlfHsQsH6Yx2smvcTCeyoDNgCW7FEYyV01drPlh2T243PR2DiDXqtC5N4GDm4Ma/lkxfW5a/4793vbA==",
+      "type": "package",
+      "path": "newtonsoft.json/12.0.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.md",
+        "lib/net20/Newtonsoft.Json.dll",
+        "lib/net20/Newtonsoft.Json.xml",
+        "lib/net35/Newtonsoft.Json.dll",
+        "lib/net35/Newtonsoft.Json.xml",
+        "lib/net40/Newtonsoft.Json.dll",
+        "lib/net40/Newtonsoft.Json.xml",
+        "lib/net45/Newtonsoft.Json.dll",
+        "lib/net45/Newtonsoft.Json.xml",
+        "lib/netstandard1.0/Newtonsoft.Json.dll",
+        "lib/netstandard1.0/Newtonsoft.Json.xml",
+        "lib/netstandard1.3/Newtonsoft.Json.dll",
+        "lib/netstandard1.3/Newtonsoft.Json.xml",
+        "lib/netstandard2.0/Newtonsoft.Json.dll",
+        "lib/netstandard2.0/Newtonsoft.Json.xml",
+        "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.dll",
+        "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.xml",
+        "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.dll",
+        "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.xml",
+        "newtonsoft.json.12.0.2.nupkg.sha512",
+        "newtonsoft.json.nuspec"
       ]
     },
     "runtime.native.System/4.3.0": {
@@ -5051,11 +5093,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\公司\\个人项目\\vueTypescript\\vue3.0管理项目\\接口\\BackManager.WebApi\\BackManager.Application\\BackManager.Application.csproj",
+      "projectUniqueName": "D:\\公司\\个人项目\\vueTypescript\\vue3.0管理项目\\接口\\newBackManager.WebApi\\BackManager.Application\\BackManager.Application.csproj",
       "projectName": "BackManager.Application",
-      "projectPath": "D:\\公司\\个人项目\\vueTypescript\\vue3.0管理项目\\接口\\BackManager.WebApi\\BackManager.Application\\BackManager.Application.csproj",
+      "projectPath": "D:\\公司\\个人项目\\vueTypescript\\vue3.0管理项目\\接口\\newBackManager.WebApi\\BackManager.Application\\BackManager.Application.csproj",
       "packagesPath": "C:\\Users\\yjkj\\.nuget\\packages\\",
-      "outputPath": "D:\\公司\\个人项目\\vueTypescript\\vue3.0管理项目\\接口\\BackManager.WebApi\\BackManager.Application\\obj\\",
+      "outputPath": "D:\\公司\\个人项目\\vueTypescript\\vue3.0管理项目\\接口\\newBackManager.WebApi\\BackManager.Application\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -5075,11 +5117,11 @@
       "frameworks": {
         "netcoreapp3.0": {
           "projectReferences": {
-            "D:\\公司\\个人项目\\vueTypescript\\vue3.0管理项目\\接口\\BackManager.WebApi\\BackManager.Domain\\BackManager.Domain.csproj": {
-              "projectPath": "D:\\公司\\个人项目\\vueTypescript\\vue3.0管理项目\\接口\\BackManager.WebApi\\BackManager.Domain\\BackManager.Domain.csproj"
+            "D:\\公司\\个人项目\\vueTypescript\\vue3.0管理项目\\接口\\newBackManager.WebApi\\BackManager.Domain\\BackManager.Domain.csproj": {
+              "projectPath": "D:\\公司\\个人项目\\vueTypescript\\vue3.0管理项目\\接口\\newBackManager.WebApi\\BackManager.Domain\\BackManager.Domain.csproj"
             },
-            "D:\\公司\\个人项目\\vueTypescript\\vue3.0管理项目\\接口\\BackManager.WebApi\\BackManager.Infrastructure\\BackManager.Infrastructure.csproj": {
-              "projectPath": "D:\\公司\\个人项目\\vueTypescript\\vue3.0管理项目\\接口\\BackManager.WebApi\\BackManager.Infrastructure\\BackManager.Infrastructure.csproj"
+            "D:\\公司\\个人项目\\vueTypescript\\vue3.0管理项目\\接口\\newBackManager.WebApi\\BackManager.Infrastructure\\BackManager.Infrastructure.csproj": {
+              "projectPath": "D:\\公司\\个人项目\\vueTypescript\\vue3.0管理项目\\接口\\newBackManager.WebApi\\BackManager.Infrastructure\\BackManager.Infrastructure.csproj"
             }
           }
         }

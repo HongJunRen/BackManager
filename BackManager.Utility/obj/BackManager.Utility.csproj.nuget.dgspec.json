@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\公司\\个人项目\\vueTypescript\\vue3.0管理项目\\接口\\BackManager.WebApi\\BackManager.Utility\\BackManager.Utility.csproj": {}
+    "D:\\公司\\个人项目\\vueTypescript\\vue3.0管理项目\\接口\\newBackManager.WebApi\\BackManager.Utility\\BackManager.Utility.csproj": {}
   },
   "projects": {
-    "D:\\公司\\个人项目\\vueTypescript\\vue3.0管理项目\\接口\\BackManager.WebApi\\BackManager.Utility\\BackManager.Utility.csproj": {
+    "D:\\公司\\个人项目\\vueTypescript\\vue3.0管理项目\\接口\\newBackManager.WebApi\\BackManager.Utility\\BackManager.Utility.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\公司\\个人项目\\vueTypescript\\vue3.0管理项目\\接口\\BackManager.WebApi\\BackManager.Utility\\BackManager.Utility.csproj",
+        "projectUniqueName": "D:\\公司\\个人项目\\vueTypescript\\vue3.0管理项目\\接口\\newBackManager.WebApi\\BackManager.Utility\\BackManager.Utility.csproj",
         "projectName": "BackManager.Utility",
-        "projectPath": "D:\\公司\\个人项目\\vueTypescript\\vue3.0管理项目\\接口\\BackManager.WebApi\\BackManager.Utility\\BackManager.Utility.csproj",
+        "projectPath": "D:\\公司\\个人项目\\vueTypescript\\vue3.0管理项目\\接口\\newBackManager.WebApi\\BackManager.Utility\\BackManager.Utility.csproj",
         "packagesPath": "C:\\Users\\yjkj\\.nuget\\packages\\",
-        "outputPath": "D:\\公司\\个人项目\\vueTypescript\\vue3.0管理项目\\接口\\BackManager.WebApi\\BackManager.Utility\\obj\\",
+        "outputPath": "D:\\公司\\个人项目\\vueTypescript\\vue3.0管理项目\\接口\\newBackManager.WebApi\\BackManager.Utility\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

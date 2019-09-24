@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\公司\\个人项目\\vueTypescript\\vue3.0管理项目\\接口\\BackManager.WebApi\\BackManager.Domain\\BackManager.Domain.csproj": {}
+    "D:\\公司\\个人项目\\vueTypescript\\vue3.0管理项目\\接口\\newBackManager.WebApi\\BackManager.Domain\\BackManager.Domain.csproj": {}
   },
   "projects": {
-    "D:\\公司\\个人项目\\vueTypescript\\vue3.0管理项目\\接口\\BackManager.WebApi\\BackManager.Domain\\BackManager.Domain.csproj": {
+    "D:\\公司\\个人项目\\vueTypescript\\vue3.0管理项目\\接口\\newBackManager.WebApi\\BackManager.Domain\\BackManager.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\公司\\个人项目\\vueTypescript\\vue3.0管理项目\\接口\\BackManager.WebApi\\BackManager.Domain\\BackManager.Domain.csproj",
+        "projectUniqueName": "D:\\公司\\个人项目\\vueTypescript\\vue3.0管理项目\\接口\\newBackManager.WebApi\\BackManager.Domain\\BackManager.Domain.csproj",
         "projectName": "BackManager.Domain",
-        "projectPath": "D:\\公司\\个人项目\\vueTypescript\\vue3.0管理项目\\接口\\BackManager.WebApi\\BackManager.Domain\\BackManager.Domain.csproj",
+        "projectPath": "D:\\公司\\个人项目\\vueTypescript\\vue3.0管理项目\\接口\\newBackManager.WebApi\\BackManager.Domain\\BackManager.Domain.csproj",
         "packagesPath": "C:\\Users\\yjkj\\.nuget\\packages\\",
-        "outputPath": "D:\\公司\\个人项目\\vueTypescript\\vue3.0管理项目\\接口\\BackManager.WebApi\\BackManager.Domain\\obj\\",
+        "outputPath": "D:\\公司\\个人项目\\vueTypescript\\vue3.0管理项目\\接口\\newBackManager.WebApi\\BackManager.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -41,6 +41,12 @@
       },
       "frameworks": {
         "netcoreapp3.0": {
+          "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.2, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
