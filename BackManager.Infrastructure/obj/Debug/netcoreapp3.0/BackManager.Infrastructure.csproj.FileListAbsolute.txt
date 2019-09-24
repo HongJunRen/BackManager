@@ -1,0 +1,13 @@
+D:\公司\个人项目\vueTypescript\vue3.0管理项目\接口\BackManager.WebApi\BackManager.Infrastructure\bin\Debug\netcoreapp3.0\BackManager.Infrastructure.deps.json
+D:\公司\个人项目\vueTypescript\vue3.0管理项目\接口\BackManager.WebApi\BackManager.Infrastructure\bin\Debug\netcoreapp3.0\BackManager.Infrastructure.dll
+D:\公司\个人项目\vueTypescript\vue3.0管理项目\接口\BackManager.WebApi\BackManager.Infrastructure\bin\Debug\netcoreapp3.0\BackManager.Infrastructure.pdb
+D:\公司\个人项目\vueTypescript\vue3.0管理项目\接口\BackManager.WebApi\BackManager.Infrastructure\obj\Debug\netcoreapp3.0\BackManager.Infrastructure.AssemblyInfoInputs.cache
+D:\公司\个人项目\vueTypescript\vue3.0管理项目\接口\BackManager.WebApi\BackManager.Infrastructure\obj\Debug\netcoreapp3.0\BackManager.Infrastructure.AssemblyInfo.cs
+D:\公司\个人项目\vueTypescript\vue3.0管理项目\接口\BackManager.WebApi\BackManager.Infrastructure\obj\Debug\netcoreapp3.0\BackManager.Infrastructure.dll
+D:\公司\个人项目\vueTypescript\vue3.0管理项目\接口\BackManager.WebApi\BackManager.Infrastructure\obj\Debug\netcoreapp3.0\BackManager.Infrastructure.pdb
+D:\公司\个人项目\vueTypescript\vue3.0管理项目\接口\BackManager.WebApi\BackManager.Infrastructure\obj\Debug\netcoreapp3.0\BackManager.Infrastructure.csprojAssemblyReference.cache
+D:\公司\个人项目\vueTypescript\vue3.0管理项目\接口\BackManager.WebApi\BackManager.Infrastructure\bin\Debug\netcoreapp3.0\BackManager.Domain.dll
+D:\公司\个人项目\vueTypescript\vue3.0管理项目\接口\BackManager.WebApi\BackManager.Infrastructure\bin\Debug\netcoreapp3.0\BackManager.Domain.pdb
+D:\公司\个人项目\vueTypescript\vue3.0管理项目\接口\BackManager.WebApi\BackManager.Infrastructure\obj\Debug\netcoreapp3.0\BackManager.Infrastructure.csproj.CopyComplete
+D:\公司\个人项目\vueTypescript\vue3.0管理项目\接口\BackManager.WebApi\BackManager.Infrastructure\bin\Debug\netcoreapp3.0\BackManager.Utility.dll
+D:\公司\个人项目\vueTypescript\vue3.0管理项目\接口\BackManager.WebApi\BackManager.Infrastructure\bin\Debug\netcoreapp3.0\BackManager.Utility.pdb

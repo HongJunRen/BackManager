@@ -1,0 +1,15 @@
+D:\公司\个人项目\vueTypescript\vue3.0管理项目\接口\BackManager.WebApi\BackManager.Application\bin\Debug\netcoreapp3.0\BackManager.Application.deps.json
+D:\公司\个人项目\vueTypescript\vue3.0管理项目\接口\BackManager.WebApi\BackManager.Application\bin\Debug\netcoreapp3.0\BackManager.Application.dll
+D:\公司\个人项目\vueTypescript\vue3.0管理项目\接口\BackManager.WebApi\BackManager.Application\bin\Debug\netcoreapp3.0\BackManager.Application.pdb
+D:\公司\个人项目\vueTypescript\vue3.0管理项目\接口\BackManager.WebApi\BackManager.Application\obj\Debug\netcoreapp3.0\BackManager.Application.csprojAssemblyReference.cache
+D:\公司\个人项目\vueTypescript\vue3.0管理项目\接口\BackManager.WebApi\BackManager.Application\obj\Debug\netcoreapp3.0\BackManager.Application.AssemblyInfoInputs.cache
+D:\公司\个人项目\vueTypescript\vue3.0管理项目\接口\BackManager.WebApi\BackManager.Application\obj\Debug\netcoreapp3.0\BackManager.Application.AssemblyInfo.cs
+D:\公司\个人项目\vueTypescript\vue3.0管理项目\接口\BackManager.WebApi\BackManager.Application\obj\Debug\netcoreapp3.0\BackManager.Application.dll
+D:\公司\个人项目\vueTypescript\vue3.0管理项目\接口\BackManager.WebApi\BackManager.Application\obj\Debug\netcoreapp3.0\BackManager.Application.pdb
+D:\公司\个人项目\vueTypescript\vue3.0管理项目\接口\BackManager.WebApi\BackManager.Application\bin\Debug\netcoreapp3.0\BackManager.Domain.dll
+D:\公司\个人项目\vueTypescript\vue3.0管理项目\接口\BackManager.WebApi\BackManager.Application\bin\Debug\netcoreapp3.0\BackManager.Infrastructure.dll
+D:\公司\个人项目\vueTypescript\vue3.0管理项目\接口\BackManager.WebApi\BackManager.Application\bin\Debug\netcoreapp3.0\BackManager.Domain.pdb
+D:\公司\个人项目\vueTypescript\vue3.0管理项目\接口\BackManager.WebApi\BackManager.Application\bin\Debug\netcoreapp3.0\BackManager.Infrastructure.pdb
+D:\公司\个人项目\vueTypescript\vue3.0管理项目\接口\BackManager.WebApi\BackManager.Application\obj\Debug\netcoreapp3.0\BackManager.Application.csproj.CopyComplete
+D:\公司\个人项目\vueTypescript\vue3.0管理项目\接口\BackManager.WebApi\BackManager.Application\bin\Debug\netcoreapp3.0\BackManager.Utility.dll
+D:\公司\个人项目\vueTypescript\vue3.0管理项目\接口\BackManager.WebApi\BackManager.Application\bin\Debug\netcoreapp3.0\BackManager.Utility.pdb
