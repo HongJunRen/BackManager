@@ -19,6 +19,11 @@ using UnitOfWork;
 
 namespace BackManager.WebApi
 {
+    public enum DbType
+    {
+        SqlServer = 1,
+        MySql = 2
+    }
     public class Startup
     {
         public Startup(IConfiguration configuration)
@@ -42,7 +47,14 @@ namespace BackManager.WebApi
             #endregion
 
             services.AddDbContext<UnitOfWorkDbContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("MySqlConnectionString")));
+            {
+                if (Configuration.GetConnectionString("DbType").ToEnum<DbType>() == DbType.SqlServer)
+
+                    options.UseSqlServer(Configuration.GetConnectionString("SqlServerConneceftionString"));
+                else
+                    options.UseMySql(Configuration.GetConnectionString("MySqlConnectionString"))
+
+            });
 
             //services.AddDbContext<UnitOfWorkDbContext>(options =>
             //   options.UseMySql("Data Source=localhost;port=3306;Initial Catalog=magicadmin;uid=root;password=123456;")

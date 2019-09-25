@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BackManager.Infrastructure
 {
-    public abstract class Repository<TEntity, TPrimaryKey> : IRepository<TEntity, TPrimaryKey>
+    public abstract class MySqlRepository<TEntity, TPrimaryKey> : IRepository<TEntity, TPrimaryKey>
         where TEntity : class, IEntity<TPrimaryKey>, IAggregateRoot<TPrimaryKey>
     {
         public abstract IQueryable<TEntity> GetAll();
