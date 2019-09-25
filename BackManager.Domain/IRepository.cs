@@ -21,13 +21,34 @@ namespace BackManager.Domain
         /// </summary>
         /// <returns>IQueryable to be used to select entities from database</returns>
         IQueryable<TEntity> GetAll();
-
         /// <summary>
-        /// Gets an entity with given primary key.
+        /// 分页信息
         /// </summary>
-        /// <param name="id">Primary key of the entity to get</param>
-        /// <returns>Entity</returns>
-        TEntity Get(TPrimaryKey id);
+        /// <param name="funcWhere"></param>
+        /// <param name="pageSize"></param>
+        /// <param name="pageIndex"></param>
+        /// <param name="funcOrderby"></param>
+        /// <param name="isAsc"></param>
+        /// <returns></returns>
+        PageResult<TEntity> QueryPage<S>(Expression<Func<TEntity, bool>> funcWhere,
+            int pageSize,
+            int pageIndex,
+            Expression<Func<TEntity, S>> funcOrderby,
+            bool isAsc = true);
+
+       PageResult<Parg> QueryPage<Parg>(
+          string sql,
+          int pageSize,
+          int pageIndex,
+          string Orderby,
+          bool isAsc = true);
+        
+            /// <summary>
+            /// Gets an entity with given primary key.
+            /// </summary>
+            /// <param name="id">Primary key of the entity to get</param>
+            /// <returns>Entity</returns>
+            TEntity Get(TPrimaryKey id);
 
         /// <summary>
         /// Gets an entity with given primary key.

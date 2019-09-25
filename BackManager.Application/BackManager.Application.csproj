@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\BackManager.Common.DtoModel\BackManager.Common.DtoModel.csproj" />
     <ProjectReference Include="..\BackManager.Domain\BackManager.Domain.csproj" />
     <ProjectReference Include="..\BackManager.Infrastructure\BackManager.Infrastructure.csproj" />
   </ItemGroup>

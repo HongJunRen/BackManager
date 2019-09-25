@@ -18,7 +18,7 @@ namespace BackManager.Domain
         ApiResult<T> GetModel(long id);
 
 
-        ApiResult<ReturnInfo<T>> GridInfo<Par>(QueryParameter<Par> parameter)
+        ApiResult<PageResult<T>> GridInfo<Par>(QueryParameter<Par> parameter)
             where Par : class;
 
     }
@@ -38,7 +38,7 @@ namespace BackManager.Domain
 
         Task<ApiResult<T>> GetModelAsync(long id);
 
-        Task<ApiResult<ReturnInfo<T>>> GridInfoAsync<Par>(QueryParameter<Par> parameter)
+        Task<ApiResult<PageResult<T>>> GridInfoAsync<Par>(QueryParameter<Par> parameter)
             where Par : class;
 
     }

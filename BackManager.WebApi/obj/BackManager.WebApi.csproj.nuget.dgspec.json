@@ -31,6 +31,9 @@
         "frameworks": {
           "netcoreapp3.0": {
             "projectReferences": {
+              "D:\\公司\\个人项目\\vueTypescript\\vue3.0管理项目\\接口\\newBackManager.WebApi\\BackManager.Common.DtoModel\\BackManager.Common.DtoModel.csproj": {
+                "projectPath": "D:\\公司\\个人项目\\vueTypescript\\vue3.0管理项目\\接口\\newBackManager.WebApi\\BackManager.Common.DtoModel\\BackManager.Common.DtoModel.csproj"
+              },
               "D:\\公司\\个人项目\\vueTypescript\\vue3.0管理项目\\接口\\newBackManager.WebApi\\BackManager.Domain\\BackManager.Domain.csproj": {
                 "projectPath": "D:\\公司\\个人项目\\vueTypescript\\vue3.0管理项目\\接口\\newBackManager.WebApi\\BackManager.Domain\\BackManager.Domain.csproj"
               },
@@ -38,6 +41,62 @@
                 "projectPath": "D:\\公司\\个人项目\\vueTypescript\\vue3.0管理项目\\接口\\newBackManager.WebApi\\BackManager.Infrastructure\\BackManager.Infrastructure.csproj"
               }
             }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.0": {
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\公司\\个人项目\\vueTypescript\\vue3.0管理项目\\接口\\newBackManager.WebApi\\BackManager.Common.DtoModel\\BackManager.Common.DtoModel.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\公司\\个人项目\\vueTypescript\\vue3.0管理项目\\接口\\newBackManager.WebApi\\BackManager.Common.DtoModel\\BackManager.Common.DtoModel.csproj",
+        "projectName": "BackManager.Common.DtoModel",
+        "projectPath": "D:\\公司\\个人项目\\vueTypescript\\vue3.0管理项目\\接口\\newBackManager.WebApi\\BackManager.Common.DtoModel\\BackManager.Common.DtoModel.csproj",
+        "packagesPath": "C:\\Users\\yjkj\\.nuget\\packages\\",
+        "outputPath": "D:\\公司\\个人项目\\vueTypescript\\vue3.0管理项目\\接口\\newBackManager.WebApi\\BackManager.Common.DtoModel\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\yjkj\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "http://192.168.1.81:2017/nuget": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.0": {
+            "projectReferences": {}
           }
         },
         "warningProperties": {
@@ -178,13 +237,9 @@
               "target": "Package",
               "version": "[4.9.4, )"
             },
-            "Microsoft.EntityFrameworkCore": {
+            "Pomelo.EntityFrameworkCore.MySql": {
               "target": "Package",
-              "version": "[3.0.0, )"
-            },
-            "Microsoft.EntityFrameworkCore.SqlServer": {
-              "target": "Package",
-              "version": "[3.0.0, )"
+              "version": "[2.2.1-preview1-final, )"
             },
             "System.Data.SqlClient": {
               "target": "Package",
@@ -247,6 +302,16 @@
       },
       "frameworks": {
         "netcoreapp3.0": {
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "System.Data.Common": {
+              "target": "Package",
+              "version": "[4.3.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

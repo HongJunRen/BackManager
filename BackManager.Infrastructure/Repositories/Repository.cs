@@ -1,6 +1,7 @@
 ﻿using BackManager.Domain;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
@@ -11,7 +12,10 @@ namespace BackManager.Infrastructure
         where TEntity : class, IEntity<TPrimaryKey>, IAggregateRoot<TPrimaryKey>
     {
         public abstract IQueryable<TEntity> GetAll();
-
+        public abstract IQueryable<TEntity> GetAll(string sql, params object[] parameters);
+        public abstract IList<Dto> GetAlls<Dto>(string sql, params object[] parameters);
+        public abstract IList<Dto> GetAlls<Dto>(string sql, CommandType commandType, params object[] parameters);
+        public abstract int ExecuteScalar(string sql);
         public virtual List<TEntity> GetAllList()
         {
             return GetAll().ToList();
@@ -175,6 +179,77 @@ namespace BackManager.Infrastructure
             );
 
             return Expression.Lambda<Func<TEntity, bool>>(lambdaBody, lambdaParam);
+        }
+
+        public PageResult<TEntity> QueryPage<S>(Expression<Func<TEntity, bool>> funcWhere, int pageSize, int pageIndex, Expression<Func<TEntity, S>> funcOrderby, bool isAsc = true)
+        {
+            var list = this.GetAll();
+            if (funcWhere != null)
+            {
+                list = list.Where(funcWhere);
+            }
+            if (isAsc)
+            {
+                list = list.OrderBy(funcOrderby);
+            }
+            else
+            {
+                list = list.OrderByDescending(funcOrderby);
+            }
+            int Total = list.Count();
+            int PageTotal = (Total % pageSize == 0) ? Total / pageSize : (Total / pageSize) + 1;
+
+            PageResult<TEntity> result = new PageResult<TEntity>()
+            {
+                Rows = list.Skip((pageIndex - 1) * pageSize).Take(pageSize).ToList(),
+                PageTotal= PageTotal,
+                Total = list.Count()
+            };
+            return result;
+        }
+
+        public PageResult<Parg> QueryPage<Parg>(string sql, int pageSize, int pageIndex, string Orderby, bool isAsc = true)
+        {
+            //一般情况下，客户端通过传递 pageNo（页码）、pageSize（每页条数）两个参数去分页查询数据库中的数据，在数据量较小（元组百 / 千级）时使用 MySQL自带的 limit 来解
+            //select * from table limit (pageNo-1)*pageSize,pageSize;
+            //在数据量较小的时候简单的使用 limit 进行数据分页在性能上面不会有明显的缓慢，但是数据量达到了 万级到百万级 sql语句的性能将会影响数据的返回。这时需要利用主键或者唯一索引进行数据分页；
+            //select * from table where good_id > (pageNo-1)*pageSize order by good_id limit pageSize; 
+            string getOrderBy()
+            {
+                if (string.IsNullOrEmpty(Orderby))
+                {
+                    return "";
+                }
+                if (isAsc)
+                {
+                    return $"order by {typeof(TPrimaryKey).Name} ase";
+                }
+                else
+                {
+                    return $"order by {typeof(TPrimaryKey).Name} ";
+                }
+            }
+            string pageSql = $@"select * from 
+                              (
+                               {sql}
+                              )
+                                where {typeof(TPrimaryKey).Name} > ({pageIndex}-1)*{pageSize}
+                                {
+                                 getOrderBy()
+                                } 
+                                limit {pageSize}; ";
+            IEnumerable<Parg> Rows = this.GetAlls<Parg>(pageSql, null);
+            int Total = this.ExecuteScalar(sql);
+            int PageTotal = (Total % pageSize == 0) ? Total / pageSize : (Total / pageSize) + 1;
+
+            return new PageResult<Parg>()
+            {
+                Rows = Rows,
+                Total = Total,
+                PageTotal= PageTotal
+            };
+
+
         }
     }
 }

@@ -28,3 +28,5 @@ D:\公司\个人项目\vueTypescript\vue3.0管理项目\接口\newBackManager.We
 D:\公司\个人项目\vueTypescript\vue3.0管理项目\接口\newBackManager.WebApi\BackManager.Application\obj\Debug\netcoreapp3.0\BackManager.Application.csproj.CopyComplete
 D:\公司\个人项目\vueTypescript\vue3.0管理项目\接口\newBackManager.WebApi\BackManager.Application\obj\Debug\netcoreapp3.0\BackManager.Application.dll
 D:\公司\个人项目\vueTypescript\vue3.0管理项目\接口\newBackManager.WebApi\BackManager.Application\obj\Debug\netcoreapp3.0\BackManager.Application.pdb
+D:\公司\个人项目\vueTypescript\vue3.0管理项目\接口\newBackManager.WebApi\BackManager.Application\bin\Debug\netcoreapp3.0\BackManager.Common.DtoModel.dll
+D:\公司\个人项目\vueTypescript\vue3.0管理项目\接口\newBackManager.WebApi\BackManager.Application\bin\Debug\netcoreapp3.0\BackManager.Common.DtoModel.pdb

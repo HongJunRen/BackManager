@@ -39,10 +39,14 @@ namespace BackManager.WebApi
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
             });
-            #endregion 
+            #endregion
 
             services.AddDbContext<UnitOfWorkDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("MySqlConnectionString")));
+
+            //services.AddDbContext<UnitOfWorkDbContext>(options =>
+            //   options.UseMySql("Data Source=localhost;port=3306;Initial Catalog=magicadmin;uid=root;password=123456;")
+            //   );
         }
         //×¢²áAOP
         public void ConfigureContainer(ContainerBuilder containerBuilder)

@@ -3,14 +3,13 @@ using System.Collections.Generic;
 
 namespace BackManager.Domain
 {
-    public class ReturnInfo<T>
+    public class PageResult<T>
     {
         /// <summary>
         /// 返回总页数
         /// </summary>
         public int PageTotal { get; set; }
      
-        public int TotalCount { get; set; }
         [JsonProperty("rows")]
         public IEnumerable<T> Rows { get; set; }
         /// <summary>

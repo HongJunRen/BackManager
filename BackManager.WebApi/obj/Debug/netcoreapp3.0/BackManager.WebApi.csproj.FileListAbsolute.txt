@@ -270,3 +270,9 @@ D:\公司\个人项目\vueTypescript\vue3.0管理项目\接口\newBackManager.We
 D:\公司\个人项目\vueTypescript\vue3.0管理项目\接口\newBackManager.WebApi\BackManager.WebApi\obj\Debug\netcoreapp3.0\BackManager.WebApi.AssemblyInfo.cs
 D:\公司\个人项目\vueTypescript\vue3.0管理项目\接口\newBackManager.WebApi\BackManager.WebApi\obj\Debug\netcoreapp3.0\BackManager.WebApi.RazorTargetAssemblyInfo.cache
 D:\公司\个人项目\vueTypescript\vue3.0管理项目\接口\newBackManager.WebApi\BackManager.WebApi\obj\Debug\netcoreapp3.0\BackManager.WebApi.csproj.CopyComplete
+D:\公司\个人项目\vueTypescript\vue3.0管理项目\接口\newBackManager.WebApi\BackManager.WebApi\bin\Debug\netcoreapp3.0\AutoMapper.dll
+D:\公司\个人项目\vueTypescript\vue3.0管理项目\接口\newBackManager.WebApi\BackManager.WebApi\bin\Debug\netcoreapp3.0\BackManager.Common.DtoModel.dll
+D:\公司\个人项目\vueTypescript\vue3.0管理项目\接口\newBackManager.WebApi\BackManager.WebApi\bin\Debug\netcoreapp3.0\BackManager.Common.DtoModel.pdb
+D:\公司\个人项目\vueTypescript\vue3.0管理项目\接口\newBackManager.WebApi\BackManager.WebApi\bin\Debug\netcoreapp3.0\MySqlConnector.dll
+D:\公司\个人项目\vueTypescript\vue3.0管理项目\接口\newBackManager.WebApi\BackManager.WebApi\bin\Debug\netcoreapp3.0\Pomelo.EntityFrameworkCore.MySql.dll
+D:\公司\个人项目\vueTypescript\vue3.0管理项目\接口\newBackManager.WebApi\BackManager.WebApi\bin\Debug\netcoreapp3.0\Pomelo.JsonObject.dll

@@ -17,6 +17,37 @@
         }
       }
     },
+    "/api/SysUser/UserPage": {
+      "get": {
+        "tags": [
+          "SysUser"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SysUserParQueryParameter"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SysUserParQueryParameter"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SysUserParQueryParameter"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
     "/api/Values": {
       "get": {
         "tags": [
@@ -186,5 +217,53 @@
       }
     }
   },
-  "components": { }
+  "components": {
+    "schemas": {
+      "SysUserPar": {
+        "type": "object",
+        "additionalProperties": false
+      },
+      "SysUserParQueryParameter": {
+        "type": "object",
+        "properties": {
+          "rows": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "isPage": {
+            "type": "boolean"
+          },
+          "page": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "isDesc": {
+            "type": "boolean"
+          },
+          "sort": {
+            "type": "string",
+            "nullable": true
+          },
+          "commandText": {
+            "type": "string",
+            "nullable": true
+          },
+          "totalKey": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "totalPageKey": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "filter": {
+            "$ref": "#/components/schemas/SysUserPar"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
 }

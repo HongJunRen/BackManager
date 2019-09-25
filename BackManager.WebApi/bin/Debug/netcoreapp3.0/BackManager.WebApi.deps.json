@@ -179,7 +179,7 @@
           "System.Configuration": "4.0.0.0",
           "System.Console.Reference": "4.1.1.0",
           "System.Core": "4.0.0.0",
-          "System.Data.Common": "4.2.1.0",
+          "System.Data.Common.Reference": "4.2.1.0",
           "System.Data.DataSetExtensions": "4.0.0.0",
           "System.Data": "4.0.0.0",
           "System.Diagnostics.Contracts": "4.0.3.0",
@@ -348,6 +348,21 @@
         },
         "compile": {
           "lib/netstandard2.0/Autofac.Extensions.DependencyInjection.dll": {}
+        }
+      },
+      "AutoMapper/9.0.0": {
+        "dependencies": {
+          "Microsoft.CSharp": "4.6.0",
+          "System.Reflection.Emit": "4.3.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/AutoMapper.dll": {
+            "assemblyVersion": "9.0.0.0",
+            "fileVersion": "9.0.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/AutoMapper.dll": {}
         }
       },
       "Microsoft.AspNetCore.Authentication.Abstractions/2.0.0": {
@@ -1161,6 +1176,17 @@
           "System.Security.Principal.Windows": "4.6.0"
         }
       },
+      "MySqlConnector/0.57.0-beta7": {
+        "runtime": {
+          "lib/netcoreapp3.0/MySqlConnector.dll": {
+            "assemblyVersion": "0.57.0.0",
+            "fileVersion": "0.57.0.0"
+          }
+        },
+        "compile": {
+          "lib/netcoreapp3.0/MySqlConnector.dll": {}
+        }
+      },
       "NETStandard.Library/1.6.1": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "3.0.0",
@@ -1246,6 +1272,37 @@
         },
         "compile": {
           "lib/netstandard1.6/NuGet.Frameworks.dll": {}
+        }
+      },
+      "Pomelo.EntityFrameworkCore.MySql/2.2.1-preview1-final": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.Relational": "3.0.0",
+          "MySqlConnector": "0.57.0-beta7",
+          "Pomelo.JsonObject": "2.2.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Pomelo.EntityFrameworkCore.MySql.dll": {
+            "assemblyVersion": "2.2.1.0",
+            "fileVersion": "2.2.1.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Pomelo.EntityFrameworkCore.MySql.dll": {}
+        }
+      },
+      "Pomelo.JsonObject/2.2.0": {
+        "dependencies": {
+          "Microsoft.CSharp": "4.6.0",
+          "Newtonsoft.Json": "12.0.2"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Pomelo.JsonObject.dll": {
+            "assemblyVersion": "2.2.0.0",
+            "fileVersion": "2.2.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Pomelo.JsonObject.dll": {}
         }
       },
       "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {},
@@ -1662,6 +1719,18 @@
           "System.IO": "4.3.0",
           "System.Runtime": "4.3.0",
           "System.Text.Encoding": "4.3.0"
+        }
+      },
+      "System.Data.Common/4.3.0": {
+        "dependencies": {
+          "System.Collections": "4.3.0",
+          "System.Globalization": "4.3.0",
+          "System.IO": "4.3.0",
+          "System.Resources.ResourceManager": "4.3.0",
+          "System.Runtime": "4.3.0",
+          "System.Runtime.Extensions": "4.3.0",
+          "System.Text.RegularExpressions": "4.3.0",
+          "System.Threading.Tasks": "4.3.0"
         }
       },
       "System.Data.SqlClient/4.7.0": {
@@ -2402,6 +2471,7 @@
       },
       "BackManager.Application/1.0.0": {
         "dependencies": {
+          "BackManager.Common.DtoModel": "1.0.0",
           "BackManager.Domain": "1.0.0",
           "BackManager.Infrastructure": "1.0.0"
         },
@@ -2410,6 +2480,14 @@
         },
         "compile": {
           "BackManager.Application.dll": {}
+        }
+      },
+      "BackManager.Common.DtoModel/1.0.0": {
+        "runtime": {
+          "BackManager.Common.DtoModel.dll": {}
+        },
+        "compile": {
+          "BackManager.Common.DtoModel.dll": {}
         }
       },
       "BackManager.Domain/1.0.0": {
@@ -2428,8 +2506,7 @@
           "Autofac": "4.9.4",
           "BackManager.Domain": "1.0.0",
           "BackManager.Utility": "1.0.0",
-          "Microsoft.EntityFrameworkCore": "3.0.0",
-          "Microsoft.EntityFrameworkCore.SqlServer": "3.0.0",
+          "Pomelo.EntityFrameworkCore.MySql": "2.2.1-preview1-final",
           "System.Data.SqlClient": "4.7.0"
         },
         "runtime": {
@@ -2440,6 +2517,10 @@
         }
       },
       "BackManager.Utility/1.0.0": {
+        "dependencies": {
+          "AutoMapper": "9.0.0",
+          "System.Data.Common": "4.3.0"
+        },
         "runtime": {
           "BackManager.Utility.dll": {}
         },
@@ -3317,7 +3398,7 @@
         },
         "compileOnly": true
       },
-      "System.Data.Common/4.2.1.0": {
+      "System.Data.Common.Reference/4.2.1.0": {
         "compile": {
           "System.Data.Common.dll": {}
         },
@@ -4161,6 +4242,13 @@
       "path": "autofac.extensions.dependencyinjection/5.0.0",
       "hashPath": "autofac.extensions.dependencyinjection.5.0.0.nupkg.sha512"
     },
+    "AutoMapper/9.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-xCqvoxT4HIrNY/xlXG9W+BA/awdrhWvMTKTK/igkGSRbhOhpl3Q8O8Gxlhzjc9JsYqE7sS6AxgyuUUvZ6R5/Bw==",
+      "path": "automapper/9.0.0",
+      "hashPath": "automapper.9.0.0.nupkg.sha512"
+    },
     "Microsoft.AspNetCore.Authentication.Abstractions/2.0.0": {
       "type": "package",
       "serviceable": true,
@@ -4651,6 +4739,13 @@
       "path": "microsoft.win32.registry/4.6.0",
       "hashPath": "microsoft.win32.registry.4.6.0.nupkg.sha512"
     },
+    "MySqlConnector/0.57.0-beta7": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-T2/1qc/ZpwmloYoFz3TueYqcimGyaEyLpqJa4rPyVpQ5g5vc0/0RTV8DWI758Yi9FY5r37Dh5OfoW053bISKBQ==",
+      "path": "mysqlconnector/0.57.0-beta7",
+      "hashPath": "mysqlconnector.0.57.0-beta7.nupkg.sha512"
+    },
     "NETStandard.Library/1.6.1": {
       "type": "package",
       "serviceable": true,
@@ -4678,6 +4773,20 @@
       "sha512": "sha512-qbXaB76XYUVLocLBs8Z9TS/ERGK2wm797feO+0JEPFvT7o7MRadOR77mqaSD4J1k8G+DlZQyq+MlkCuxrkr3ag==",
       "path": "nuget.frameworks/4.7.0",
       "hashPath": "nuget.frameworks.4.7.0.nupkg.sha512"
+    },
+    "Pomelo.EntityFrameworkCore.MySql/2.2.1-preview1-final": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-hWlx8XwhePhtZ0v06U8d74wvHE26cddBZCGzkQLlOTCnpeiH1G9ZPR6WjRgtwbuXXpulRzvnVMFla/gXEyT7Ww==",
+      "path": "pomelo.entityframeworkcore.mysql/2.2.1-preview1-final",
+      "hashPath": "pomelo.entityframeworkcore.mysql.2.2.1-preview1-final.nupkg.sha512"
+    },
+    "Pomelo.JsonObject/2.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-dfe8owsB+u9amQhZHKCPy2YiIt9tK4iX3dBoSwKlNd2cbi7Yh38XU93LjlYVJ+8HhxS9UgDoUbhYEt3jXTxBRQ==",
+      "path": "pomelo.jsonobject/2.2.0",
+      "hashPath": "pomelo.jsonobject.2.2.0.nupkg.sha512"
     },
     "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
       "type": "package",
@@ -5000,6 +5109,13 @@
       "sha512": "sha512-DHDrIxiqk1h03m6khKWV2X8p/uvN79rgSqpilL6uzpmSfxfU5ng8VcPtW4qsDsQDHiTv6IPV9TmD5M/vElPNLg==",
       "path": "system.console/4.3.0",
       "hashPath": "system.console.4.3.0.nupkg.sha512"
+    },
+    "System.Data.Common/4.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-lm6E3T5u7BOuEH0u18JpbJHxBfOJPuCyl4Kg1RH10ktYLp5uEEE1xKrHW56/We4SnZpGAuCc9N0MJpSDhTHZGQ==",
+      "path": "system.data.common/4.3.0",
+      "hashPath": "system.data.common.4.3.0.nupkg.sha512"
     },
     "System.Data.SqlClient/4.7.0": {
       "type": "package",
@@ -5478,6 +5594,11 @@
       "hashPath": "system.xml.xmlserializer.4.3.0.nupkg.sha512"
     },
     "BackManager.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "BackManager.Common.DtoModel/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -6222,7 +6343,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "System.Data.Common/4.2.1.0": {
+    "System.Data.Common.Reference/4.2.1.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""
