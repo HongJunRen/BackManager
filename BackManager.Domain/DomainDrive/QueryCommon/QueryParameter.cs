@@ -40,34 +40,27 @@ namespace BackManager.Domain.DomainDrive
         /// 是否降序
         /// </summary>
         public bool IsDesc { get; set; } = true;
-        private string _Sort = "UpdatedAt";
+        private string _OrderBy = "ID";
         /// <summary>
         /// 排序字段默认为Id
         /// </summary>
-        public string Sort
+        public string OrderBy
         {
             get
             {
-                if (this.IsDesc && this._Sort.IndexOf("desc") == -1)
-                {
-                    if (string.IsNullOrEmpty(_Sort))
-                        _Sort = "UpdatedAt";
-                    _Sort = $"{_Sort}   desc";
-                }
-                return _Sort;
+
+                if (string.IsNullOrEmpty(_OrderBy))
+                    _OrderBy = "ID";
+                _OrderBy = $"{_OrderBy}   ";
+
+                return _OrderBy;
             }
             set
             {
-                _Sort = value;
+                _OrderBy = value;
             }
         }
 
-        /// </summary>
-        /// <summary>
-        /// 存储过程名称
-        /// </summary>
-        public string CommandText { get; set; }
-       
 
         /// <summary>
         /// 总条数key
@@ -85,7 +78,7 @@ namespace BackManager.Domain.DomainDrive
             get { return "@totalPage"; }
         }
 
-        
+
 
         public T Filter { get; set; }
 

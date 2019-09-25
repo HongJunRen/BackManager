@@ -2,20 +2,21 @@
 
 namespace BackManager.Utility
 {
+    public enum DbType
+    {
+        None = -1,
+        SqlServer = 1,
+        MySql = 2
+    }
     public class StaticConstraint
     {
+
         public static void Init(Func<string, string> func)
         {
-            MySqlConnectionString = func.Invoke("ConnectionStrings:MySqlConnectionString");
-            //循环--反射的方式初始化多个
+            dbType = func.Invoke("ConnectionStrings:DbType").ToEnum<DbType>();
         }
 
-
-        /// <summary>
-        /// 以前直接读配置文件
-        /// ConnectionStrings:JDDbConnectionString
-        /// </summary>
-        public static string MySqlConnectionString = null;
+        public static DbType dbType = DbType.None;
 
     }
 }

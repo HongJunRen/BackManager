@@ -1,6 +1,7 @@
 ﻿using Autofac;
 using BackManager.Domain;
 using BackManager.Infrastructure;
+using BackManager.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,13 +20,22 @@ namespace BackManager.WebApi.Utility
             builder.AddUnitOfWork<UnitOfWorkDbContext>();
             //使用默认方法注入Uow依赖
 
-        
+            if (StaticConstraint.dbType == DbType.SqlServer)
+            {
 
-            builder.RegisterGeneric(typeof(EfCoreRepository<>)).As(typeof(IRepository<>)).InstancePerLifetimeScope();//注册仓储泛型
+                builder.RegisterGeneric(typeof(EfCoreRepository<>)).As(typeof(IRepository<>)).InstancePerLifetimeScope();//注册仓储泛型
 
-            builder.RegisterGeneric(typeof(EfCoreRepository<,>)).As(typeof(IRepository<,>)).InstancePerLifetimeScope();//注册仓储泛型
+                builder.RegisterGeneric(typeof(EfCoreRepository<,>)).As(typeof(IRepository<,>)).InstancePerLifetimeScope();//注册仓储泛型
+
+            }
+            else
+            {
+                builder.RegisterGeneric(typeof(EfMySqlCoreRepository<>)).As(typeof(IRepository<>)).InstancePerLifetimeScope();//注册仓储泛型
+
+                builder.RegisterGeneric(typeof(EfMySqlCoreRepository<,>)).As(typeof(IRepository<,>)).InstancePerLifetimeScope();//注册仓储泛型
 
 
+            }
 
 
             builder.RegisterAssemblyTypes(typeof(SysUserService).Assembly)

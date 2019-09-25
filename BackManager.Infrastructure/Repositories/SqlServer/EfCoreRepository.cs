@@ -46,7 +46,6 @@ namespace BackManager.Infrastructure
         public override IList<Dto> GetAlls<Dto>(string sql, CommandType commandType, params object[] parameters)
         {
 
-
             using (var Connection = _dbContext.Database.GetDbConnection())
             {
                 if (Connection.State == ConnectionState.Closed)
@@ -56,6 +55,7 @@ namespace BackManager.Infrastructure
 
                 using (DbCommand cmd = Connection.CreateCommand())
                 {
+                    //cmd.Connection = Connection;
                     cmd.CommandType = commandType;
                     cmd.CommandText = sql;
                     DbDataReader dbDataReader = cmd.ExecuteReader();

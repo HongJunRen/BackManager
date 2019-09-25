@@ -202,13 +202,13 @@ namespace BackManager.Infrastructure
             PageResult<TEntity> result = new PageResult<TEntity>()
             {
                 Rows = list.Skip((pageIndex - 1) * pageSize).Take(pageSize).ToList(),
-                PageTotal= PageTotal,
+                PageTotal = PageTotal,
                 Total = list.Count()
             };
             return result;
         }
 
-        public PageResult<Parg> QueryPage<Parg>(string sql, int pageSize, int pageIndex, string Orderby, bool isAsc = true)
+        public PageResult<Parg> QueryPage<Parg>(string sql, int pageSize, int pageIndex, string Orderby, bool IsDesc = true)
         {
             //一般情况下，客户端通过传递 pageNo（页码）、pageSize（每页条数）两个参数去分页查询数据库中的数据，在数据量较小（元组百 / 千级）时使用 MySQL自带的 limit 来解
             //select * from table limit (pageNo-1)*pageSize,pageSize;
@@ -216,23 +216,20 @@ namespace BackManager.Infrastructure
             //select * from table where good_id > (pageNo-1)*pageSize order by good_id limit pageSize; 
             string getOrderBy()
             {
-                if (string.IsNullOrEmpty(Orderby))
+              
+                if (IsDesc)
                 {
-                    return "";
-                }
-                if (isAsc)
-                {
-                    return $"order by {typeof(TPrimaryKey).Name} ase";
+                    return $"order by {Orderby} DESC";
                 }
                 else
                 {
-                    return $"order by {typeof(TPrimaryKey).Name} ";
+                    return $"order by {Orderby} ";
                 }
             }
             string pageSql = $@"select * from 
                               (
                                {sql}
-                              )
+                              )t
                                {
                                  getOrderBy()
                                 }
@@ -245,7 +242,7 @@ namespace BackManager.Infrastructure
             {
                 Rows = Rows,
                 Total = Total,
-                PageTotal= PageTotal
+                PageTotal = PageTotal
             };
 
 

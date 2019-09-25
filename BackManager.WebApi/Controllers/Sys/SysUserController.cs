@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BackManager.Common.DtoModel;
 using BackManager.Common.DtoModel.Model.SysModel.QueryParameter;
 using BackManager.Domain.DomainDrive;
 using Microsoft.AspNetCore.Mvc;
@@ -26,13 +27,30 @@ namespace BackManager.WebApi.Controllers.Sys
         {
             return Ok(_sysUserService.User());
         }
-
         /// <summary>
-        /// 用户测试
+        /// 用户新增
         /// </summary>
         /// <returns></returns>
-        [HttpGet]
-        public async Task<IActionResult> UserPage(QueryParameter<SysUserPar> queryParameter)
+        [HttpPost]
+        public async Task<IActionResult> UserAdd([FromBody]SysUserDto model)
+        {
+            return Ok(await _sysUserService.InsertAsync(model));
+        }
+        /// <summary>
+        /// 用户修改
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        public async Task<IActionResult> UserUpdate([FromBody]SysUserDto model)
+        {
+            return Ok(await _sysUserService.UpdateAsync(model));
+        }
+        /// <summary>
+        /// 用户分页
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        public async Task<IActionResult> UserPage([FromBody]QueryParameter<SysUserPar> queryParameter)
         {
             return Ok(await _sysUserService.GridInfoAsync(queryParameter));
         }

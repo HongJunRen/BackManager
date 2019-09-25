@@ -17,8 +17,70 @@
         }
       }
     },
+    "/api/SysUser/UserAdd": {
+      "post": {
+        "tags": [
+          "SysUser"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SysUserDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SysUserDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SysUserDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/SysUser/UserUpdate": {
+      "post": {
+        "tags": [
+          "SysUser"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SysUserDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SysUserDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SysUserDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
     "/api/SysUser/UserPage": {
-      "get": {
+      "post": {
         "tags": [
           "SysUser"
         ],
@@ -219,6 +281,32 @@
   },
   "components": {
     "schemas": {
+      "SysUserDto": {
+        "type": "object",
+        "properties": {
+          "departmentID": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "loginName": {
+            "type": "string",
+            "nullable": true
+          },
+          "niceName": {
+            "type": "string",
+            "nullable": true
+          },
+          "contractPhone": {
+            "type": "string",
+            "nullable": true
+          },
+          "groupName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "SysUserPar": {
         "type": "object",
         "additionalProperties": false
@@ -240,11 +328,7 @@
           "isDesc": {
             "type": "boolean"
           },
-          "sort": {
-            "type": "string",
-            "nullable": true
-          },
-          "commandText": {
+          "orderBy": {
             "type": "string",
             "nullable": true
           },

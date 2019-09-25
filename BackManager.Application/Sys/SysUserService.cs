@@ -67,6 +67,7 @@ namespace UnitOfWork.Customer
             //Expression<Func<SysUser, bool>> funcOrderby = null;
             //PageResult<SysUser> pageResult = _sysUserRepository.QueryPage(x, parameter.Rows, parameter.Page, funcOrderby);
             PageResult<SysUserDto> pageResult = _sysUserRepository.QueryPage<SysUserDto>(@"SELECT
+                                                                                        sy.ID,
                                                                                         sy.UserType,
                                                                                         sy.NiceName,
                                                                                         sy.LoginName,
@@ -75,7 +76,7 @@ namespace UnitOfWork.Customer
                                                                                     FROM
                                                                                         sysuser sy
                                                                                         LEFT JOIN sysusergroup ssg ON sy.id = ssg.UserID
-                                                                                        LEFT JOIN sysgroup sg ON ssg.GroupID = sg.id", parameter.Rows, parameter.Page,"");
+                                                                                        LEFT JOIN sysgroup sg ON ssg.GroupID = sg.id", parameter.Rows, parameter.Page, parameter.OrderBy);
                                                                                                 return Task.FromResult(ApiResult<PageResult<SysUserDto>>.Ok(pageResult));
 
 

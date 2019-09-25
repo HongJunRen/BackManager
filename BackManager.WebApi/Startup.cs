@@ -19,17 +19,16 @@ using UnitOfWork;
 
 namespace BackManager.WebApi
 {
-    public enum DbType
-    {
-        SqlServer = 1,
-        MySql = 2
-    }
+   
     public class Startup
     {
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-            //StaticConstraint.Init(s => configuration[s]);
+            
+            
+            StaticConstraint.Init(s =>  configuration[s]);
+           
         }
 
         public IConfiguration Configuration { get; }
@@ -49,10 +48,9 @@ namespace BackManager.WebApi
             services.AddDbContext<UnitOfWorkDbContext>(options =>
             {
                 if (Configuration.GetConnectionString("DbType").ToEnum<DbType>() == DbType.SqlServer)
-
                     options.UseSqlServer(Configuration.GetConnectionString("SqlServerConneceftionString"));
                 else
-                    options.UseMySql(Configuration.GetConnectionString("MySqlConnectionString"))
+                    options.UseMySql(Configuration.GetConnectionString("MySqlConnectionString"));
 
             });
 
