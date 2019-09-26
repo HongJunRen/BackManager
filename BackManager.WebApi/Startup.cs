@@ -50,7 +50,7 @@ namespace BackManager.WebApi
                 if (Configuration.GetConnectionString("DbType").ToEnum<DbType>() == DbType.SqlServer)
                     options.UseSqlServer(Configuration.GetConnectionString("SqlServerConneceftionString"));
                 else
-                    options.UseMySql(Configuration.GetConnectionString("MySqlConnectionString"));
+                    options.UseMySQL(Configuration.GetConnectionString("MySqlConnectionString"));
 
             });
 

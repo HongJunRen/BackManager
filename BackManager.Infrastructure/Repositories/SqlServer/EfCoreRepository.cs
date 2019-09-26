@@ -40,7 +40,7 @@ namespace BackManager.Infrastructure
         }
         public override IQueryable<TEntity> GetAll(string sql, params object[] parameters)
         {
-            return Table.FromSql(sql, parameters);
+            return Table.FromSqlRaw(sql, parameters);
         }
         public override IList<Dto> GetAlls<Dto>(string sql, params object[] parameters) => this.GetAlls<Dto>(sql, CommandType.Text, parameters);
         public override IList<Dto> GetAlls<Dto>(string sql, CommandType commandType, params object[] parameters)
