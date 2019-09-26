@@ -34,14 +34,14 @@ namespace BackManager.Domain
             int pageSize,
             int pageIndex,
             Expression<Func<TEntity, S>> funcOrderby,
-            bool isAsc = true);
+            bool IsDesc = true);
 
        PageResult<Parg> QueryPage<Parg>(
           string sql,
           int pageSize,
           int pageIndex,
           string Orderby,
-          bool isAsc = true);
+          bool IsDesc = true);
         
             /// <summary>
             /// Gets an entity with given primary key.

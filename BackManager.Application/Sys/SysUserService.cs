@@ -76,7 +76,7 @@ namespace UnitOfWork.Customer
                                                                                     FROM
                                                                                         sysuser sy
                                                                                         LEFT JOIN sysusergroup ssg ON sy.id = ssg.UserID
-                                                                                        LEFT JOIN sysgroup sg ON ssg.GroupID = sg.id", parameter.Rows, parameter.Page, parameter.OrderBy);
+                                                                                        LEFT JOIN sysgroup sg ON ssg.GroupID = sg.id", parameter.Rows, parameter.Page, parameter.OrderBy, parameter.IsDesc);
                                                                                                 return Task.FromResult(ApiResult<PageResult<SysUserDto>>.Ok(pageResult));
 
 

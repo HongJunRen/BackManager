@@ -181,20 +181,21 @@ namespace BackManager.Infrastructure
             return Expression.Lambda<Func<TEntity, bool>>(lambdaBody, lambdaParam);
         }
 
-        public PageResult<TEntity> QueryPage<S>(Expression<Func<TEntity, bool>> funcWhere, int pageSize, int pageIndex, Expression<Func<TEntity, S>> funcOrderby, bool isAsc = true)
+        public PageResult<TEntity> QueryPage<S>(Expression<Func<TEntity, bool>> funcWhere, int pageSize, int pageIndex, Expression<Func<TEntity, S>> funcOrderby, bool IsDesc = true)
         {
             var list = this.GetAll();
             if (funcWhere != null)
             {
                 list = list.Where(funcWhere);
             }
-            if (isAsc)
+            if (IsDesc)
             {
-                list = list.OrderBy(funcOrderby);
+                list = list.OrderByDescending(funcOrderby);
+              
             }
             else
             {
-                list = list.OrderByDescending(funcOrderby);
+                 list = list.OrderBy(funcOrderby);
             }
             int Total = list.Count();
             int PageTotal = (Total % pageSize == 0) ? Total / pageSize : (Total / pageSize) + 1;

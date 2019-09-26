@@ -181,20 +181,20 @@ namespace BackManager.Infrastructure
             return Expression.Lambda<Func<TEntity, bool>>(lambdaBody, lambdaParam);
         }
 
-        public PageResult<TEntity> QueryPage<S>(Expression<Func<TEntity, bool>> funcWhere, int pageSize, int pageIndex, Expression<Func<TEntity, S>> funcOrderby, bool isAsc = true)
+        public PageResult<TEntity> QueryPage<S>(Expression<Func<TEntity, bool>> funcWhere, int pageSize, int pageIndex, Expression<Func<TEntity, S>> funcOrderby, bool IsDesc = true)
         {
             var list = this.GetAll();
             if (funcWhere != null)
             {
                 list = list.Where(funcWhere);
             }
-            if (isAsc)
-            {
-                list = list.OrderBy(funcOrderby);
+            if (IsDesc)
+            { 
+                list = list.OrderByDescending(funcOrderby);
             }
             else
-            {
-                list = list.OrderByDescending(funcOrderby);
+            { 
+                list = list.OrderBy(funcOrderby);
             }
             int Total = list.Count();
             int PageTotal = (Total % pageSize == 0) ? Total / pageSize : (Total / pageSize) + 1;
@@ -208,7 +208,7 @@ namespace BackManager.Infrastructure
             return result;
         }
 
-        public PageResult<Parg> QueryPage<Parg>(string sql, int pageSize, int pageIndex, string Orderby, bool isAsc = true)
+        public PageResult<Parg> QueryPage<Parg>(string sql, int pageSize, int pageIndex, string Orderby, bool IsDesc = true)
         {
             //一般情况下，客户端通过传递 pageNo（页码）、pageSize（每页条数）两个参数去分页查询数据库中的数据，在数据量较小（元组百 / 千级）时使用 MySQL自带的 limit 来解
             //select * from table limit (pageNo-1)*pageSize,pageSize;
@@ -220,9 +220,9 @@ namespace BackManager.Infrastructure
                 {
                     return "";
                 }
-                if (isAsc)
+                if (IsDesc)
                 {
-                    return $"order by {typeof(TPrimaryKey).Name} ase";
+                    return $"order by {typeof(TPrimaryKey).Name} Desc";
                 }
                 else
                 {
