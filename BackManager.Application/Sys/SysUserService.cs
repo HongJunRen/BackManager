@@ -1,4 +1,5 @@
 ﻿using BackManager.Common.DtoModel;
+using BackManager.Common.DtoModel.Model.Login;
 using BackManager.Domain;
 using BackManager.Utility;
 using System;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace UnitOfWork.Customer
 {
-    public class SysUserService : ISysUserService
+    public class SysUserService : ISysMenuService
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IRepository<SysUser> _sysUserRepository;
@@ -42,6 +43,7 @@ namespace UnitOfWork.Customer
                             join ug in sysGroupQueryable on uuugModel.GroupID equals ug.Id
                             into uug
                             from uugModel in uug.DefaultIfEmpty()
+                            where u.Id == id
                             select new SysUserDto()
                             {
                                 LoginName = u.LoginName,
@@ -77,7 +79,7 @@ namespace UnitOfWork.Customer
                                                                                         sysuser sy
                                                                                         LEFT JOIN sysusergroup ssg ON sy.id = ssg.UserID
                                                                                         LEFT JOIN sysgroup sg ON ssg.GroupID = sg.id", parameter.Rows, parameter.Page, parameter.OrderBy, parameter.IsDesc);
-                                                                                                return Task.FromResult(ApiResult<PageResult<SysUserDto>>.Ok(pageResult));
+            return Task.FromResult(ApiResult<PageResult<SysUserDto>>.Ok(pageResult));
 
 
         }
@@ -88,6 +90,8 @@ namespace UnitOfWork.Customer
             sysUser = await _sysUserRepository.InsertAsync(sysUser);
             return await Task.FromResult(ApiResult<long>.Ok(sysUser.Id));
         }
+
+
 
         public async Task<ApiResult<long>> UpdateAsync(SysUserDto model)
         {
@@ -100,5 +104,28 @@ namespace UnitOfWork.Customer
         {
             return _sysUserRepository.FirstOrDefault(11);
         }
+
+        #region 用户登录
+        public async Task<ApiResult<SysUserDto>> Login(LoginUserDto loginUserDto)
+        {
+
+            var userModel =
+                _sysUserRepository.GetAll().Where(m => m.LoginName == loginUserDto.UserName && m.Password == loginUserDto.Password.ToMD5Encoding()).FirstOrDefault();
+
+
+            if (userModel != null)
+            {
+                return await Task.FromResult(ApiResult<SysUserDto>.Ok(new SysUserDto()
+                {
+                    ContractPhone = userModel.ContractPhone,
+                    ID = userModel.Id,
+                    LoginName = userModel.LoginName,
+                    NiceName = userModel.NiceName
+                }));
+            }
+            return await Task.FromResult(ApiResult<SysUserDto>.Error("登录错误"));
+        }
+        #endregion
+
     }
 }

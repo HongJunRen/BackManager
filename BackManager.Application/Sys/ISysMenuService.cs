@@ -5,7 +5,7 @@ using BackManager.Domain;
 
 namespace UnitOfWork.Customer
 {
-    public interface ISysMenuService:IDataEntityAsync<SysUserDto>
+    public interface ISysMenuService : IDataEntityAsync<SysMenuDto>
     {
         SysUser User();
         Task<ApiResult<SysUserDto>> Login(LoginUserDto loginUserDto);

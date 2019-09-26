@@ -2,6 +2,7 @@
 using BackManager.Domain;
 using BackManager.Infrastructure;
 using BackManager.Utility;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,8 +37,13 @@ namespace BackManager.WebApi.Utility
 
 
             }
-
-
+            //属性注入
+            {
+                var controllerBaseType = typeof(ControllerBase);
+                builder.RegisterAssemblyTypes(typeof(Program).Assembly)
+                    .Where(t => controllerBaseType.IsAssignableFrom(t) && t != controllerBaseType)
+                    .PropertiesAutowired();
+            }
             builder.RegisterAssemblyTypes(typeof(SysUserService).Assembly)
               .Where(t => t.Name.EndsWith("Service"))
               .AsImplementedInterfaces()

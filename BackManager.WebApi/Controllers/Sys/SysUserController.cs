@@ -12,8 +12,8 @@ namespace BackManager.WebApi.Controllers.Sys
 {
     public class SysUserController : BaseController
     {
-        private readonly ISysUserService _sysUserService;
-        public SysUserController(ISysUserService sysUserService)
+        private readonly ISysMenuService _sysUserService;
+        public SysUserController(ISysMenuService sysUserService)
         {
             _sysUserService = sysUserService;
         }
@@ -54,5 +54,7 @@ namespace BackManager.WebApi.Controllers.Sys
         {
             return Ok(await _sysUserService.GridInfoAsync(queryParameter));
         }
+
+
     }
 }

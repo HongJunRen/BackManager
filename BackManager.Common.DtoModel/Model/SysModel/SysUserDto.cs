@@ -6,6 +6,8 @@ namespace BackManager.Common.DtoModel
 {
     public class SysUserDto
     {
+        public long ID { get; set; }
+
         /// <summary>
         /// 所属部门
         /// </summary>
