@@ -107,6 +107,12 @@
       },
       "frameworks": {
         "netcoreapp3.0": {
+          "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.2, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -314,6 +320,10 @@
             "AutoMapper": {
               "target": "Package",
               "version": "[9.0.0, )"
+            },
+            "PinYinConverterCore": {
+              "target": "Package",
+              "version": "[1.0.2, )"
             },
             "System.Data.Common": {
               "target": "Package",

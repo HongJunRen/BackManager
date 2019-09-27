@@ -9,6 +9,7 @@
       "BackManager.Utility/1.0.0": {
         "dependencies": {
           "AutoMapper": "9.0.0",
+          "PinYinConverterCore": "1.0.2",
           "System.Data.Common": "4.3.0"
         },
         "runtime": {
@@ -30,6 +31,14 @@
       "Microsoft.CSharp/4.5.0": {},
       "Microsoft.NETCore.Platforms/1.1.0": {},
       "Microsoft.NETCore.Targets/1.1.0": {},
+      "PinYinConverterCore/1.0.2": {
+        "runtime": {
+          "lib/netstandard2.0/PinYinConverterCore.dll": {
+            "assemblyVersion": "1.0.2.0",
+            "fileVersion": "1.0.2.0"
+          }
+        }
+      },
       "System.Collections/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0",
@@ -173,6 +182,13 @@
       "sha512": "sha512-aOZA3BWfz9RXjpzt0sRJJMjAscAUm3Hoa4UWAfceV9UTYxgwZ1lZt5nO2myFf+/jetYQo4uTP7zS8sJY67BBxg==",
       "path": "microsoft.netcore.targets/1.1.0",
       "hashPath": "microsoft.netcore.targets.1.1.0.nupkg.sha512"
+    },
+    "PinYinConverterCore/1.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-GWGUL7HYyyTZeVltwgJ2sr8ER+Wyj1aR44KN1A5GS0iB3j/JqXDG62OHupz3iFczCQ4797IhHSSqOet7MvsWJQ==",
+      "path": "pinyinconvertercore/1.0.2",
+      "hashPath": "pinyinconvertercore.1.0.2.nupkg.sha512"
     },
     "System.Collections/4.3.0": {
       "type": "package",

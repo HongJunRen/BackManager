@@ -42,6 +42,15 @@
           "lib/netstandard1.0/_._": {}
         }
       },
+      "PinYinConverterCore/1.0.2": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/PinYinConverterCore.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/PinYinConverterCore.dll": {}
+        }
+      },
       "System.Collections/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -334,6 +343,21 @@
         "microsoft.netcore.targets.1.1.0.nupkg.sha512",
         "microsoft.netcore.targets.nuspec",
         "runtime.json"
+      ]
+    },
+    "PinYinConverterCore/1.0.2": {
+      "sha512": "GWGUL7HYyyTZeVltwgJ2sr8ER+Wyj1aR44KN1A5GS0iB3j/JqXDG62OHupz3iFczCQ4797IhHSSqOet7MvsWJQ==",
+      "type": "package",
+      "path": "pinyinconvertercore/1.0.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net45/PinYinConverterCore.dll",
+        "lib/net45/PinYinConverterCore.xml",
+        "lib/netstandard2.0/PinYinConverterCore.dll",
+        "lib/netstandard2.0/PinYinConverterCore.xml",
+        "pinyinconvertercore.1.0.2.nupkg.sha512",
+        "pinyinconvertercore.nuspec"
       ]
     },
     "System.Collections/4.3.0": {
@@ -1277,6 +1301,7 @@
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.0": [
       "AutoMapper >= 9.0.0",
+      "PinYinConverterCore >= 1.0.2",
       "System.Data.Common >= 4.3.0"
     ]
   },
@@ -1325,6 +1350,10 @@
           "AutoMapper": {
             "target": "Package",
             "version": "[9.0.0, )"
+          },
+          "PinYinConverterCore": {
+            "target": "Package",
+            "version": "[1.0.2, )"
           },
           "System.Data.Common": {
             "target": "Package",

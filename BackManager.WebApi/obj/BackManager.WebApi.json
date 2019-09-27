@@ -5,10 +5,56 @@
     "version": "v1"
   },
   "paths": {
+    "/api/Login/Login": {
+      "post": {
+        "tags": [
+          "Login"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginUserDto"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginUserDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginUserDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginUserDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
     "/api/SysUser/GetUser": {
       "get": {
         "tags": [
           "SysUser"
+        ],
+        "parameters": [
+          {
+            "name": "ID",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
         ],
         "responses": {
           "200": {
@@ -24,6 +70,11 @@
         ],
         "requestBody": {
           "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SysUserDto"
+              }
+            },
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/SysUserDto"
@@ -55,6 +106,11 @@
         ],
         "requestBody": {
           "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SysUserDto"
+              }
+            },
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/SysUserDto"
@@ -86,6 +142,11 @@
         ],
         "requestBody": {
           "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SysUserParQueryParameter"
+              }
+            },
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/SysUserParQueryParameter"
@@ -103,6 +164,18 @@
             }
           }
         },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/SysUser/LogOut": {
+      "get": {
+        "tags": [
+          "SysUser"
+        ],
         "responses": {
           "200": {
             "description": "Success"
@@ -153,6 +226,11 @@
         ],
         "requestBody": {
           "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "type": "string"
+              }
+            },
             "application/json": {
               "schema": {
                 "type": "string"
@@ -233,6 +311,11 @@
         ],
         "requestBody": {
           "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "type": "string"
+              }
+            },
             "application/json": {
               "schema": {
                 "type": "string"
@@ -281,26 +364,123 @@
   },
   "components": {
     "schemas": {
+      "LoginUserDto": {
+        "type": "object",
+        "properties": {
+          "UserName": {
+            "type": "string",
+            "nullable": true
+          },
+          "Password": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Meta": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "icon": {
+            "type": "string",
+            "nullable": true
+          },
+          "menuId": {
+            "type": "integer",
+            "format": "int64"
+          }
+        },
+        "additionalProperties": false
+      },
+      "MenuInfo": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string",
+            "nullable": true
+          },
+          "component": {
+            "type": "string",
+            "nullable": true
+          },
+          "redirect": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "meta": {
+            "$ref": "#/components/schemas/Meta"
+          },
+          "children": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MenuInfo"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RouterInfo": {
+        "type": "object",
+        "properties": {
+          "router": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MenuInfo"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RouterDto": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/RouterInfo"
+          }
+        },
+        "additionalProperties": false
+      },
       "SysUserDto": {
         "type": "object",
         "properties": {
-          "departmentID": {
+          "ID": {
             "type": "integer",
             "format": "int64"
           },
-          "loginName": {
+          "DepartmentID": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "LoginName": {
             "type": "string",
             "nullable": true
           },
-          "niceName": {
+          "NiceName": {
             "type": "string",
             "nullable": true
           },
-          "contractPhone": {
+          "ContractPhone": {
             "type": "string",
             "nullable": true
           },
-          "groupName": {
+          "GroupName": {
+            "type": "string",
+            "nullable": true
+          },
+          "MenuList": {
+            "$ref": "#/components/schemas/RouterDto"
+          },
+          "token": {
             "type": "string",
             "nullable": true
           }
@@ -314,35 +494,35 @@
       "SysUserParQueryParameter": {
         "type": "object",
         "properties": {
-          "rows": {
+          "Rows": {
             "type": "integer",
             "format": "int32"
           },
-          "isPage": {
+          "IsPage": {
             "type": "boolean"
           },
-          "page": {
+          "Page": {
             "type": "integer",
             "format": "int32"
           },
-          "isDesc": {
+          "IsDesc": {
             "type": "boolean"
           },
-          "orderBy": {
+          "OrderBy": {
             "type": "string",
             "nullable": true
           },
-          "totalKey": {
+          "TotalKey": {
             "type": "string",
             "nullable": true,
             "readOnly": true
           },
-          "totalPageKey": {
+          "TotalPageKey": {
             "type": "string",
             "nullable": true,
             "readOnly": true
           },
-          "filter": {
+          "Filter": {
             "$ref": "#/components/schemas/SysUserPar"
           }
         },

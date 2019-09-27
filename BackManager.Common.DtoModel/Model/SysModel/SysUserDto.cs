@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BackManager.Common.DtoModel.Model.RouterDto;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -39,5 +41,10 @@ namespace BackManager.Common.DtoModel
 		/// </summary>
 		public string GroupName { get; set; }
 
+        /// 菜单权限
+        /// </summary>
+        public RouterDto MenuList { get; set; }
+        [JsonProperty("token")]
+        public string Token { get; set; }
     }
 }

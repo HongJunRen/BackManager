@@ -280,3 +280,4 @@ D:\公司\个人项目\vueTypescript\vue3.0管理项目\接口\newBackManager.We
 D:\公司\个人项目\vueTypescript\vue3.0管理项目\接口\newBackManager.WebApi\BackManager.WebApi\bin\Debug\netcoreapp3.0\Renci.SshNet.dll
 D:\公司\个人项目\vueTypescript\vue3.0管理项目\接口\newBackManager.WebApi\BackManager.WebApi\bin\Debug\netcoreapp3.0\SshNet.Security.Cryptography.dll
 D:\公司\个人项目\vueTypescript\vue3.0管理项目\接口\newBackManager.WebApi\BackManager.WebApi\bin\Debug\netcoreapp3.0\System.Xml.XPath.XmlDocument.dll
+D:\公司\个人项目\vueTypescript\vue3.0管理项目\接口\newBackManager.WebApi\BackManager.WebApi\bin\Debug\netcoreapp3.0\PinYinConverterCore.dll

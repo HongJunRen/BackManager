@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace UnitOfWork.Customer
 {
-    public class SysUserService : ISysMenuService
+    public class SysUserService : ISysUserService
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IRepository<SysUser> _sysUserRepository;
@@ -37,13 +37,13 @@ namespace UnitOfWork.Customer
             IQueryable<SysGroup> sysGroupQueryable = _sysGroupRepository.GetAll();
 
             var userModel = from u in sysUserQueryable
-                            join uug in sysUserGroupQueryable on u.Id equals uug.UserID
+                            join uug in sysUserGroupQueryable on u.ID equals uug.UserID
                             into uuug
                             from uuugModel in uuug.DefaultIfEmpty()
-                            join ug in sysGroupQueryable on uuugModel.GroupID equals ug.Id
+                            join ug in sysGroupQueryable on uuugModel.GroupID equals ug.ID
                             into uug
                             from uugModel in uug.DefaultIfEmpty()
-                            where u.Id == id
+                            where u.ID == id
                             select new SysUserDto()
                             {
                                 LoginName = u.LoginName,
@@ -88,7 +88,7 @@ namespace UnitOfWork.Customer
         {
             SysUser sysUser = AutoMapperHelper.MapTo<SysUser>(model);
             sysUser = await _sysUserRepository.InsertAsync(sysUser);
-            return await Task.FromResult(ApiResult<long>.Ok(sysUser.Id));
+            return await Task.FromResult(ApiResult<long>.Ok(sysUser.ID));
         }
 
 
@@ -97,7 +97,7 @@ namespace UnitOfWork.Customer
         {
             SysUser sysUser = AutoMapperHelper.MapTo<SysUser>(model);
             sysUser = await _sysUserRepository.UpdateAsync(sysUser);
-            return await Task.FromResult(ApiResult<long>.Ok(sysUser.Id));
+            return await Task.FromResult(ApiResult<long>.Ok(sysUser.ID));
         }
 
         public SysUser User()
@@ -118,7 +118,7 @@ namespace UnitOfWork.Customer
                 return await Task.FromResult(ApiResult<SysUserDto>.Ok(new SysUserDto()
                 {
                     ContractPhone = userModel.ContractPhone,
-                    ID = userModel.Id,
+                    ID = userModel.ID,
                     LoginName = userModel.LoginName,
                     NiceName = userModel.NiceName
                 }));

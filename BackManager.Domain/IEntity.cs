@@ -17,7 +17,7 @@
         /// <summary>
         /// Unique identifier for this entity.
         /// </summary>
-        TPrimaryKey Id { get; set; }
+        TPrimaryKey ID { get; set; }
     }
 
 

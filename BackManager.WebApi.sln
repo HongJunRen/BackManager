@@ -21,7 +21,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BackManager.Infrastructure"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BackManager.Utility", "BackManager.Utility\BackManager.Utility.csproj", "{AC279CC0-1399-45F4-A3E4-D85DF50FEC42}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackManager.Common.DtoModel", "BackManager.Common.DtoModel\BackManager.Common.DtoModel.csproj", "{2BB38895-83E0-45ED-A3E7-5B5B3F09529B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BackManager.Common.DtoModel", "BackManager.Common.DtoModel\BackManager.Common.DtoModel.csproj", "{2BB38895-83E0-45ED-A3E7-5B5B3F09529B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

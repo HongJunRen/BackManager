@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System;
+using System.Reflection;
 
 namespace BackManager.Domain
 {
@@ -8,7 +9,22 @@ namespace BackManager.Domain
 
     public class Entity<TPrimaryKey> : IEntity<TPrimaryKey>
     {
-        public virtual TPrimaryKey Id { get; set; }
+        /// <summary>
+        /// Desc:删除时间
+        /// Default:
+        /// Nullable:True
+        /// </summary>           
+        public DateTime? DeletedAt { get; set; }
+
+        /// <summary>
+        /// Desc:删除用户
+        /// Default:
+        /// Nullable:True
+        /// </summary>           
+        public long? DeleteUserId { get; set; }
+        public int DeleteFlag { get; set; } = 0;
+
+        public virtual TPrimaryKey ID { get; set; }
 
         public override bool Equals(object obj)
         {
@@ -32,12 +48,12 @@ namespace BackManager.Domain
                 return false;
             }
 
-            return Id.Equals(other.Id);
+            return ID.Equals(other.ID);
         }
 
         public override int GetHashCode()
         {
-            return Id.GetHashCode();
+            return ID.GetHashCode();
         }
 
         public static bool operator ==(Entity<TPrimaryKey> left, Entity<TPrimaryKey> right)

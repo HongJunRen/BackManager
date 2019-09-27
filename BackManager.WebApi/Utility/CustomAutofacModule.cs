@@ -37,6 +37,12 @@ namespace BackManager.WebApi.Utility
 
 
             }
+          
+            builder.RegisterAssemblyTypes(typeof(SysUserService).Assembly)
+              .Where(t => t.Name.EndsWith("Service"))
+              .AsImplementedInterfaces()
+              .InstancePerLifetimeScope();
+
             //属性注入
             {
                 var controllerBaseType = typeof(ControllerBase);
@@ -44,10 +50,7 @@ namespace BackManager.WebApi.Utility
                     .Where(t => controllerBaseType.IsAssignableFrom(t) && t != controllerBaseType)
                     .PropertiesAutowired();
             }
-            builder.RegisterAssemblyTypes(typeof(SysUserService).Assembly)
-              .Where(t => t.Name.EndsWith("Service"))
-              .AsImplementedInterfaces()
-              .InstancePerLifetimeScope();
+
         }
     }
 }

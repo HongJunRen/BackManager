@@ -15,20 +15,21 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Newtonsoft.Json;
 using UnitOfWork;
 
 namespace BackManager.WebApi
 {
-   
+
     public class Startup
     {
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-            
-            
-            StaticConstraint.Init(s =>  configuration[s]);
-           
+
+
+            StaticConstraint.Init(s => configuration[s]);
+
         }
 
         public IConfiguration Configuration { get; }
@@ -36,7 +37,40 @@ namespace BackManager.WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            #region CORS
+
+            //跨域第二种方法，声明策略，记得下边app中配置
+
+            services.AddCors(c =>
+            {
+                //一般采用这种方法
+                c.AddPolicy("LimitRequests", policy =>
+                {
+                    // 支持多个域名端口，注意端口号后不要带/斜杆：比如localhost:8000/，是错的
+                    // 注意，http://127.0.0.1:1818 和 http://localhost:1818 是不一样的，尽量写两个
+                    policy
+                    .WithOrigins("http://localhost:8088", "https://localhost:44322")
+                    .AllowAnyHeader()//Ensures that the policy allows any header.
+                    .AllowAnyMethod();
+                });
+            });
+
+            #endregion
+            //services.AddControllers();
+
+            // 或者将Controller加入到Services中
+            services.AddControllersWithViews().AddControllersAsServices().AddNewtonsoftJson(options =>
+            {
+                //JSON首字母小写解决
+                options.SerializerSettings.ContractResolver =
+                    new Newtonsoft.Json.Serialization.DefaultContractResolver();
+
+                //忽略循环引用
+                options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+
+                options.SerializerSettings.DateFormatString = "yyyy-MM-dd HH:mm:ss";
+            });
+
             #region swagger
             // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen(c =>
@@ -61,7 +95,11 @@ namespace BackManager.WebApi
         //注册AOP
         public void ConfigureContainer(ContainerBuilder containerBuilder)
         {
+
+
             containerBuilder.RegisterModule<MyAutofacModule>();
+
+
         }
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -77,6 +115,9 @@ namespace BackManager.WebApi
             }
 
             app.UseHttpsRedirection();
+
+
+
             #region swagger
             app.UseSwagger();
 
@@ -89,8 +130,10 @@ namespace BackManager.WebApi
             #endregion
             app.UseRouting();
 
+
             app.UseAuthorization();
 
+            app.UseCors("LimitRequests");//将 CORS 中间件添加到 web 应用程序管线中, 以允许跨域请求。
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

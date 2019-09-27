@@ -151,7 +151,7 @@ namespace BackManager.Infrastructure
                 .FirstOrDefault(
                     ent =>
                         ent.Entity is TEntity &&
-                        EqualityComparer<TPrimaryKey>.Default.Equals(id, ((TEntity)ent.Entity).Id)
+                        EqualityComparer<TPrimaryKey>.Default.Equals(id, ((TEntity)ent.Entity).ID)
                 );
 
             return entry?.Entity as TEntity;

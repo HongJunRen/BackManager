@@ -84,7 +84,7 @@ namespace BackManager.Infrastructure
 
         public virtual TPrimaryKey InsertAndGetId(TEntity entity)
         {
-            return Insert(entity).Id;
+            return Insert(entity).ID;
         }
 
         public virtual Task<TPrimaryKey> InsertAndGetIdAsync(TEntity entity)

@@ -12,8 +12,8 @@ namespace BackManager.WebApi.Controllers.Sys
 {
     public class SysUserController : BaseController
     {
-        private readonly ISysMenuService _sysUserService;
-        public SysUserController(ISysMenuService sysUserService)
+        private readonly ISysUserService _sysUserService;
+        public SysUserController(ISysUserService sysUserService)
         {
             _sysUserService = sysUserService;
         }
@@ -23,9 +23,9 @@ namespace BackManager.WebApi.Controllers.Sys
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public IActionResult GetUser()
+        public async Task<IActionResult> GetUser(long ID)
         {
-            return Ok(_sysUserService.User());
+            return Ok(await _sysUserService.GetModelAsync(ID));
         }
         /// <summary>
         /// 用户新增
@@ -55,6 +55,14 @@ namespace BackManager.WebApi.Controllers.Sys
             return Ok(await _sysUserService.GridInfoAsync(queryParameter));
         }
 
-
+        /// <summary>
+        /// 用户测试
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public IActionResult LogOut()
+        {
+            return Ok(new { });
+        }
     }
 }

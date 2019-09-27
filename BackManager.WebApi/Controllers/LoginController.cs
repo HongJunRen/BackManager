@@ -10,7 +10,8 @@ namespace BackManager.WebApi.Controllers
     public class LoginController : BaseController
     {
         #region 属性注入
-        public ISysMenuService _sysUserService { get; set; }
+        public ISysUserService _sysUserService { get; set; }
+        public ISysMenuService _sysMenuService { get; set; }
         #endregion
 
         /// <summary>
@@ -25,7 +26,10 @@ namespace BackManager.WebApi.Controllers
             if (sysUser.Success)
             {
 
+                sysUser.ApiData.Token = "安全密钥,暂未实现";
+                sysUser.ApiData.MenuList = await _sysMenuService.GetUserMenuList(sysUser.ApiData.ID);
             }
+
             return Ok(sysUser);
         }
     }

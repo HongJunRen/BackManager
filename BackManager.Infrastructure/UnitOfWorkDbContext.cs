@@ -18,6 +18,8 @@ namespace UnitOfWork
         public DbSet<SysUser> SysUsers { get; set; }
         public DbSet<SysUserGroup> SysUserGroups { get; set; }
 
+        public DbSet<SysMenu> SysMenus { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<SysGroup>()
@@ -31,7 +33,10 @@ namespace UnitOfWork
                 .IsUnicode(false);
 
             modelBuilder.Entity<SysUserGroup>().ToTable("SysUserGroup");
-               
+
+
+            modelBuilder.Entity<SysMenu>().ToTable("SysMenu");
+
 
         }
     }

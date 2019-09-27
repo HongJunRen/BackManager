@@ -1,6 +1,8 @@
-﻿namespace BackManager.Domain
+﻿using Mxlemon.Magic.Portal.DomainDrive;
+
+namespace BackManager.Domain
 {
-    public class AggregateRoot : AggregateRoot<long>, IAggregateRoot
+    public class AggregateRoot : AggregateRoot<long>, IAggregateRoot, IDeleteEntity
     {
         
     }
